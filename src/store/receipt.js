@@ -8,6 +8,7 @@ export default{
         receipt:null,
         receipts:null,
         form:{},
+        histories:{},
         status:[],
         errors:{},
         errSender:{},
@@ -26,6 +27,9 @@ export default{
         },
         setErrors(state,errors){
             state.errors=errors        
+        },
+        setHistories(state,histories){
+            state.histories=histories        
         },
         setErrorsSender(state,errors){
             state.errSender=errors        
@@ -169,7 +173,7 @@ export default{
                     let receipt =response.data.receipt
                     commit('setReceipts',receipt)
                     commit('setErrors',false)
-                    router.push('/admin/receipt')
+                    router.push('/receipt')
                 }  
             } catch (errors) {
                 commit('setErrors',errors.response.data.errors)
@@ -181,8 +185,8 @@ export default{
                 let response = await axios.post('/api/status/create',data,{headers: {'Authorization': 'Bearer '+localStorage.getItem('token')}})
                 if (response.status==200) {
                     commit('setSuccess',response.data.success)
-                    commit('setErrors',false)
-                    commit('setForm',false)
+                    commit('setErrors',{})
+                    commit('setForm',{})
                     alert('data berhasil di simpan')
                 }  
             } catch (errors) {
@@ -229,6 +233,18 @@ export default{
                     commit('setSuccess',false)
                 }          
             }
+        },
+        async getHistories({commit},form){
+            try {
+                let response = await axios.get('/api/receipt/'+form+'/history',{headers: {'Authorization': 'Bearer '+localStorage.getItem('token')}})
+                if (response.status==200) {
+                    let history =response.data.history
+                    commit('setHistories',history)
+                    commit('setErrors',false)
+                }  
+            } catch (errors) {
+                console.log(errors)
+         }
         },
 
     },

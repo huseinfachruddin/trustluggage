@@ -12,6 +12,7 @@ import Receipts from '../views/receipt/Receipts.vue'
 import EditReceipt from '../views/receipt/ReceiptEdit.vue'
 import NewReceipt from '../views/receipt/ReceiptNew.vue'
 import Print from '../views/receipt/Print.vue'
+import HistoryReceipt from '../views/receipt/ReceiptHistory.vue'
 
 Vue.use(vuerouter)
 
@@ -141,6 +142,17 @@ const routes = [
       auth:true,
       permision:'free',
       title:'data pengiriman'
+    }
+
+  },
+  {
+    path: '/receipt/:id/history',
+    name: 'history.receipt',
+    component: HistoryReceipt,
+    meta:{
+      auth:true,
+      permision:'free',
+      title:'history pengiriman'
     }
 
   },

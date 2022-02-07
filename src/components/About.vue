@@ -48,7 +48,7 @@
             {
             title:"Cek pengiriman",
             img: require('@/assets/box.jpg'),
-            desc:"Cek satatus pengiriman anda",
+            desc:"Cek status pengiriman anda",
             },
         ],
       }

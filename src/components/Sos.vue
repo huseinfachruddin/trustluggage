@@ -37,7 +37,7 @@
             },
             {
             icon:'mdi-whatsapp',
-            link:'https://wa.me/6282154926482'
+            link:'https://wa.me/6281215663393'
             },
           ]
       }

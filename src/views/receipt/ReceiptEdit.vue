@@ -3,9 +3,14 @@
   <Sidebar/>
   <v-container >
     <v-row class="d-flex justify-center ma-5">
-      <router-link v-if="form.no_receipt" style="text-decoration:none" :to="{name:'print.receipt', params: {id:form.no_receipt}}">
+      <router-link class="ma-1" v-if="form.no_receipt" style="text-decoration:none" :to="{name:'print.receipt', params: {id:form.no_receipt}}">
         <v-btn color="warning" dense small>
           print
+        </v-btn>
+      </router-link>
+      <router-link class="ma-1" v-if="form.no_receipt" style="text-decoration:none" :to="{name:'history.receipt', params: {id:form.no_receipt}}">
+        <v-btn small class="orange">
+          history
         </v-btn>
       </router-link>
       <v-card class="col-md-12 pa-3 ma-1">

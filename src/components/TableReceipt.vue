@@ -78,7 +78,8 @@
           <td>{{ item.no_receipt }}</td>
           <td>{{ item.receiver.name }}</td>
           <td>{{ item.created_at }}</td>
-          <td>{{ item.status.name }}</td>
+          <td v-if="item.status">{{ item.status.name}}</td>
+          <td v-else>Kosong</td>
           <td>
             <router-link style="text-decoration:none" :to="{name:'edit.receipt', params: {id:item.no_receipt}}">
 

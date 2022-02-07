@@ -30,7 +30,9 @@
 <div v-if="receipt">
 
 <div class="orange black--text ma-3 pa-1">
-        <h5>Status : {{receipt.status.name}}</h5>
+        <h5 v-if="receipt.status">Status : {{receipt.status.name}}</h5>
+        <h5 v-else>Status : Kosong</h5>
+
 </div>
 <div class="data my-5">
 <v-card class="pa-1">
@@ -91,11 +93,15 @@
             </v-col>
         </v-row>
         <v-row class="d-flex justify-center">
-            <router-link v-if="receipt.no_receipt" style="text-decoration:none" :to="{name:'print.receipt', params: {id:receipt.no_receipt}}">
+            <router-link class="ma-1" v-if="receipt.no_receipt" style="text-decoration:none" :to="{name:'print.receipt', params: {id:receipt.no_receipt}}">
             <v-btn small class="info">
                 detail
             </v-btn>
-
+            </router-link>
+            <router-link class="ma-1" v-if="receipt.no_receipt" style="text-decoration:none" :to="{name:'history.receipt', params: {id:receipt.no_receipt}}">
+            <v-btn small class="orange">
+                history
+            </v-btn>
             </router-link>
         </v-row>
     </v-container>

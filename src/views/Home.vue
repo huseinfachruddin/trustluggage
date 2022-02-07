@@ -12,7 +12,7 @@
           height="80"
           src="../assets/logo3.png"
           class="ma-3"/>
-          <p>Kami mempermudah pengiriman anda</p>
+          <p>Aman dan Terpercaya</p>
         </v-col>
         </v-row>
   </v-container> 
